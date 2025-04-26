@@ -220,3 +220,11 @@
   (interactive)
   (load-file "~/.emacs.d/config.el"))
 (evil-define-key 'normal 'global (kbd "<leader>sem") #'reload-config) ; AKA source emacs;
+
+(defun toggle-syntax-highlighting ()
+  "Toggle syntax highlighting (font-lock-mode) in the current buffer"
+  (interactive)
+  (if font-lock-mode
+      (font-lock-mode -1)
+    (font-lock-mode 1)))
+(evil-define-key 'normal 'global (kbd "<leader>tx") #'toggle-syntax-highlighting)
